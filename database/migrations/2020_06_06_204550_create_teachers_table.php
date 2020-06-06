@@ -15,6 +15,13 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
+            $table->integer('iitu_id')->unique();
+            $table->string('name');
+            $table->string('surname');
+            $table->date('birthday');
+            $table->string('email')->unique();
+            $table->integer('dep_id')->unsigned();
+            $table->foreign('dep_id')->references('id')->on('departments');
             $table->timestamps();
         });
     }

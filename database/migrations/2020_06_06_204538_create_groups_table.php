@@ -15,6 +15,11 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
+            $table->string('group_name');
+            $table->integer('course_number');
+            $table->integer('spec_id')->unsigned();
+            $table->foreign('spec_id')->references('id')->on('specialities');
+            $table->integer('students_quantity');
             $table->timestamps();
         });
     }

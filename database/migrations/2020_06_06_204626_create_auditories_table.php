@@ -15,6 +15,13 @@ class CreateAuditoriesTable extends Migration
     {
         Schema::create('auditories', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
+            $table->enum("type", [
+                1 => "лекционка",
+                2 => "компьютерный",
+                3 => "не компьютерный",
+            ]);
+            $table->integer("capacity");
             $table->timestamps();
         });
     }
